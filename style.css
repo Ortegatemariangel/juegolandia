@@ -1,0 +1,696 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body {
+
+    font-family: Arial, Helvetica, sans-serif;
+
+    min-height: 100vh;
+
+    background:
+
+        radial-gradient(
+            circle at top left,
+            #ff6b6b,
+            transparent 30%
+        ),
+
+        radial-gradient(
+            circle at top right,
+            #6c5ce7,
+            transparent 30%
+        ),
+
+        linear-gradient(
+            135deg,
+            #141e30,
+            #243b55
+        );
+
+    color: white;
+
+}
+
+
+/* =========================
+   ENCABEZADO
+========================= */
+
+.hero {
+
+    text-align: center;
+
+    padding: 55px 20px 35px;
+
+    background:
+
+        linear-gradient(
+            rgba(20, 30, 48, 0.75),
+            rgba(36, 59, 85, 0.75)
+        );
+
+    border-bottom:
+
+        4px solid #ffd166;
+
+}
+
+
+.logo {
+
+    font-size: 65px;
+
+    animation:
+
+        flotar 2s infinite ease-in-out;
+
+}
+
+
+@keyframes flotar {
+
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+
+}
+
+
+.hero h1 {
+
+    margin-top: 10px;
+
+    font-size: 65px;
+
+    font-weight: 900;
+
+    letter-spacing: 5px;
+
+    color: #ffd166;
+
+    text-shadow:
+
+        4px 4px 0 #e85d04,
+
+        0 8px 20px rgba(0,0,0,0.4);
+
+}
+
+
+.hero p {
+
+    margin-top: 10px;
+
+    font-size: 20px;
+
+    color: #f8f9fa;
+
+}
+
+
+.decoracion {
+
+    margin-top: 15px;
+
+    color: #ff70a6;
+
+    font-size: 25px;
+
+}
+
+
+/* =========================
+   BUSCADOR
+========================= */
+
+.buscador {
+
+    display: flex;
+
+    justify-content: center;
+
+    padding: 25px 20px;
+
+}
+
+
+.buscador input {
+
+    width: 500px;
+
+    max-width: 95%;
+
+    padding: 16px 22px;
+
+    border: none;
+
+    border-radius: 30px;
+
+    outline: none;
+
+    font-size: 16px;
+
+    background: white;
+
+    color: #263238;
+
+    box-shadow:
+
+        0 8px 25px rgba(0,0,0,0.3);
+
+}
+
+
+/* =========================
+   CONTENEDOR
+========================= */
+
+.contenedor {
+
+    width: 1200px;
+
+    max-width: 94%;
+
+    margin: auto;
+
+}
+
+
+.contenedor > h2 {
+
+    text-align: center;
+
+    margin: 15px 0 25px;
+
+    font-size: 30px;
+
+    color: #ffd166;
+
+}
+
+
+/* =========================
+   GRID DE JUEGOS
+========================= */
+
+.juegos {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 22px;
+
+}
+
+
+/* =========================
+   TARJETAS
+========================= */
+
+.juego {
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    text-align: center;
+
+    padding: 20px;
+
+    min-height: 290px;
+
+    border-radius: 20px;
+
+    background:
+
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,0.16),
+            rgba(255,255,255,0.07)
+        );
+
+    border:
+
+        2px solid rgba(255,255,255,0.15);
+
+    backdrop-filter: blur(10px);
+
+    box-shadow:
+
+        0 10px 25px rgba(0,0,0,0.25);
+
+    transition:
+
+        transform 0.25s,
+
+        box-shadow 0.25s,
+
+        border 0.25s;
+
+}
+
+
+.juego:hover {
+
+    transform:
+
+        translateY(-10px)
+
+        scale(1.03);
+
+    border-color: #ffd166;
+
+    box-shadow:
+
+        0 18px 35px rgba(0,0,0,0.4),
+
+        0 0 20px rgba(255,209,102,0.2);
+
+}
+
+
+/* =========================
+   ICONOS
+========================= */
+
+.icono {
+
+    width: 120px;
+
+    height: 120px;
+
+    border-radius: 25px;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    font-size: 38px;
+
+    font-weight: 900;
+
+    margin-bottom: 15px;
+
+    box-shadow:
+
+        0 8px 15px rgba(0,0,0,0.3);
+
+}
+
+
+/* COLORES */
+
+.juego-2048 {
+
+    background:
+        linear-gradient(
+            135deg,
+            #ff9f1c,
+            #e85d04
+        );
+
+}
+
+
+.slime {
+
+    background:
+        linear-gradient(
+            135deg,
+            #80ed99,
+            #06d6a0
+        );
+
+    font-size: 55px;
+
+}
+
+
+.minas {
+
+    background:
+        linear-gradient(
+            135deg,
+            #495057,
+            #212529
+        );
+
+}
+
+
+.javascript {
+
+    background:
+        linear-gradient(
+            135deg,
+            #f7df1e,
+            #f0a500
+        );
+
+    color: #222;
+
+}
+
+
+.codigo {
+
+    background:
+        linear-gradient(
+            135deg,
+            #00b4d8,
+            #0077b6
+        );
+
+}
+
+
+.java {
+
+    background:
+        linear-gradient(
+            135deg,
+            #e63946,
+            #9d0208
+        );
+
+}
+
+
+.tetris {
+
+    background:
+        linear-gradient(
+            135deg,
+            #7209b7,
+            #3a0ca3
+        );
+
+}
+
+
+.js {
+
+    background:
+        linear-gradient(
+            135deg,
+            #ffe066,
+            #f08c00
+        );
+
+    color: #222;
+
+}
+
+
+.gamer {
+
+    background:
+        linear-gradient(
+            135deg,
+            #ff70a6,
+            #8338ec
+        );
+
+}
+
+
+.html {
+
+    background:
+        linear-gradient(
+            135deg,
+            #f06529,
+            #e44d26
+        );
+
+}
+
+
+.java2 {
+
+    background:
+        linear-gradient(
+            135deg,
+            #d62828,
+            #780000
+        );
+
+}
+
+
+.pacman {
+
+    background:
+        linear-gradient(
+            135deg,
+            #ffdd00,
+            #ff9f1c
+        );
+
+    color: #333;
+
+}
+
+
+.java3 {
+
+    background:
+        linear-gradient(
+            135deg,
+            #48cae4,
+            #0077b6
+        );
+
+}
+
+
+.mi-juego {
+
+    background:
+        linear-gradient(
+            135deg,
+            #ffd166,
+            #ef476f
+        );
+
+}
+
+
+.snake {
+
+    background:
+        linear-gradient(
+            135deg,
+            #38b000,
+            #006400
+        );
+
+}
+
+
+.espacio {
+
+    background:
+        linear-gradient(
+            135deg,
+            #3a0ca3,
+            #10002b
+        );
+
+}
+
+
+.sudoku {
+
+    background:
+        linear-gradient(
+            135deg,
+            #00b4d8,
+            #03045e
+        );
+
+}
+
+
+.version {
+
+    background:
+        linear-gradient(
+            135deg,
+            #f72585,
+            #7209b7
+        );
+
+}
+
+
+/* =========================
+   TEXTO DE TARJETAS
+========================= */
+
+.juego h3 {
+
+    font-size: 20px;
+
+    color: #ffd166;
+
+    margin-bottom: 10px;
+
+}
+
+
+.juego p {
+
+    font-size: 13px;
+
+    color: #e9ecef;
+
+    line-height: 1.5;
+
+    min-height: 42px;
+
+}
+
+
+/* =========================
+   BOTÓN JUGAR
+========================= */
+
+.juego a {
+
+    display: inline-block;
+
+    margin-top: auto;
+
+    padding: 11px 30px;
+
+    border-radius: 25px;
+
+    background: #ff70a6;
+
+    color: white;
+
+    text-decoration: none;
+
+    font-weight: bold;
+
+    transition: 0.2s;
+
+}
+
+
+.juego a:hover {
+
+    background: #ffd166;
+
+    color: #222;
+
+    transform: scale(1.08);
+
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+
+    margin-top: 50px;
+
+    padding: 35px 20px;
+
+    text-align: center;
+
+    background: rgba(0,0,0,0.3);
+
+    border-top: 3px solid #ffd166;
+
+}
+
+
+footer h2 {
+
+    color: #ffd166;
+
+    margin-bottom: 10px;
+
+}
+
+
+footer p {
+
+    color: #ced4da;
+
+    margin-top: 7px;
+
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 1000px) {
+
+    .juegos {
+
+        grid-template-columns:
+            repeat(3, 1fr);
+
+    }
+
+}
+
+
+@media (max-width: 750px) {
+
+    .juegos {
+
+        grid-template-columns:
+            repeat(2, 1fr);
+
+    }
+
+    .hero h1 {
+
+        font-size: 45px;
+
+    }
+
+}
+
+
+@media (max-width: 500px) {
+
+    .juegos {
+
+        grid-template-columns: 1fr;
+
+    }
+
+    .hero h1 {
+
+        font-size: 38px;
+
+    }
+
+}
