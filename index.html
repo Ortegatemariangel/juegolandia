@@ -1,462 +1,547 @@
+
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Juegolandia 🎮</title>
+<title>Juegoland - Zona Gamer</title>
 
-    <link rel="stylesheet" href="style.css">
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #101426;
+    color: white;
+}
+
+/* ENCABEZADO */
+
+header {
+    background: #191f38;
+    padding: 22px 8%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    border-bottom: 3px solid #00e5b0;
+}
+
+.logo {
+    font-size: 30px;
+    font-weight: bold;
+    color: #00e5b0;
+}
+
+.logo span {
+    color: #ffcf40;
+}
+
+header a {
+    color: white;
+    text-decoration: none;
+    margin-left: 20px;
+    font-weight: bold;
+}
+
+header a:hover {
+    color: #00e5b0;
+}
+
+/* PORTADA */
+
+.portada {
+    margin: 30px auto;
+    width: 90%;
+    max-width: 1250px;
+    min-height: 270px;
+    border-radius: 25px;
+    padding: 40px;
+    background: linear-gradient(120deg, #283c86, #602b91);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    overflow: hidden;
+}
+
+.portada h1 {
+    font-size: 42px;
+    margin-bottom: 15px;
+}
+
+.portada p {
+    color: #e0e4ff;
+    font-size: 17px;
+    line-height: 1.6;
+    max-width: 500px;
+}
+
+.portada button {
+    margin-top: 22px;
+    padding: 14px 25px;
+    background: #00e5b0;
+    color: #101426;
+    border: none;
+    border-radius: 12px;
+    font-weight: bold;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.portada button:hover {
+    background: #ffcf40;
+}
+
+.portada .decoracion {
+    font-size: 110px;
+}
+
+/* BUSCADOR */
+
+.busqueda {
+    width: 90%;
+    max-width: 700px;
+    margin: 35px auto;
+}
+
+input {
+    width: 100%;
+    padding: 17px;
+    border: 2px solid #343d60;
+    border-radius: 15px;
+    background: #191f38;
+    color: white;
+    font-size: 16px;
+    outline: none;
+}
+
+input:focus {
+    border-color: #00e5b0;
+}
+
+input::placeholder {
+    color: #aab1cf;
+}
+
+/* CONTENIDO */
+
+.contenido {
+    width: 90%;
+    max-width: 1250px;
+    margin: auto;
+}
+
+.titulo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 25px;
+}
+
+.titulo h2 {
+    font-size: 28px;
+}
+
+.titulo span {
+    color: #00e5b0;
+}
+
+/* CATEGORIAS */
+
+.categorias {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 30px;
+}
+
+.categorias button {
+    padding: 12px 20px;
+    border: 1px solid #343d60;
+    border-radius: 25px;
+    background: #191f38;
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.categorias button:hover,
+.categorias button.activo {
+    background: #00e5b0;
+    color: #101426;
+}
+
+/* TARJETAS */
+
+.juegos {
+    display: grid;
+    grid-template-columns: repeat(
+        auto-fit,
+        minmax(200px, 1fr)
+    );
+    gap: 22px;
+}
+
+.tarjeta {
+    background: #191f38;
+    border: 1px solid #343d60;
+    border-radius: 20px;
+    overflow: hidden;
+    transition: 0.3s;
+}
+
+.tarjeta:hover {
+    transform: translateY(-7px);
+    border-color: #00e5b0;
+    box-shadow: 0 10px 25px #00e5b020;
+}
+
+.imagen {
+    height: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 65px;
+    background: var(--color);
+}
+
+.info {
+    padding: 18px;
+}
+
+.info h3 {
+    font-size: 19px;
+    margin-bottom: 12px;
+    min-height: 42px;
+}
+
+.info p {
+    color: #aab1cf;
+    font-size: 14px;
+    margin-bottom: 18px;
+}
+
+.boton {
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    background: #00e5b0;
+    color: #101426;
+    padding: 13px;
+    border-radius: 10px;
+    font-weight: bold;
+}
+
+.boton:hover {
+    background: #ffcf40;
+}
+
+/* MENSAJE */
+
+#mensaje {
+    display: none;
+    text-align: center;
+    padding: 35px;
+    color: #ffcf40;
+}
+
+/* PIE */
+
+footer {
+    margin-top: 60px;
+    padding: 35px 15px;
+    background: #191f38;
+    text-align: center;
+    border-top: 3px solid #00e5b0;
+}
+
+footer h2 {
+    color: #00e5b0;
+    margin-bottom: 12px;
+}
+
+footer p {
+    color: #aab1cf;
+    margin-top: 8px;
+}
+
+/* CELULARES */
+
+@media (max-width: 600px) {
+    header {
+        padding: 20px;
+    }
+
+    header nav {
+        width: 100%;
+    }
+
+    header a {
+        margin: 0 12px 0 0;
+    }
+
+    .portada {
+        padding: 25px;
+        min-height: 230px;
+    }
+
+    .portada h1 {
+        font-size: 30px;
+    }
+
+    .portada .decoracion {
+        font-size: 55px;
+    }
+
+    .titulo h2 {
+        font-size: 23px;
+    }
+
+    .juegos {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+    }
+
+    .imagen {
+        height: 110px;
+        font-size: 45px;
+    }
+
+    .info {
+        padding: 12px;
+    }
+
+    .info h3 {
+        font-size: 16px;
+    }
+
+    .info p {
+        font-size: 12px;
+    }
+}
+</style>
 </head>
 
 <body>
 
-    <!-- ENCABEZADO -->
+<header>
 
-    <header class="hero">
+    <div class="logo">
+        🎮 JUEGO<span>LAND</span>
+    </div>
 
-        <div class="logo">
-            🎮
-        </div>
+    <nav>
+        <a href="#">Inicio</a>
+        <a href="#juegos">Juegos</a>
+        <a href="#contacto">Contacto</a>
+    </nav>
 
-        <h1>JUEGOLANDIA</h1>
+</header>
+
+<section class="portada">
+
+    <div>
+        <h1>¡La diversión comienza aquí!</h1>
 
         <p>
-            ¡Tu mundo de juegos comienza aquí!
+            Explora mundos increíbles, supera desafíos
+            y encuentra tu próximo juego favorito.
+            ¡Todo en un solo lugar!
         </p>
 
-        <div class="decoracion">
-            ★ ✦ ★ ✦ ★
-        </div>
+        <button onclick="irJuegos()">
+            EXPLORAR JUEGOS 🚀
+        </button>
+    </div>
 
-    </header>
+    <div class="decoracion">🕹️</div>
 
+</section>
 
-    <!-- BUSCADOR -->
+<div class="busqueda">
+    <input
+        type="text"
+        id="buscar"
+        placeholder="🔍 Busca tu juego favorito..."
+        oninput="mostrarJuegos()"
+    >
+</div>
 
-    <section class="buscador">
+<main class="contenido" id="juegos">
 
-        <input
-            type="text"
-            id="buscador"
-            placeholder="🔎 Busca tu juego..."
-            onkeyup="buscarJuego()"
-        >
+    <div class="titulo">
+        <h2>🔥 Juegos disponibles</h2>
+        <span id="cantidad"></span>
+    </div>
 
-    </section>
+    <div class="categorias">
+        <button class="activo" onclick="filtrar('Todos', this)">
+            🎮 Todos
+        </button>
 
+        <button onclick="filtrar('Aventura', this)">
+            🏃 Aventura
+        </button>
 
-    <!-- JUEGOS -->
+        <button onclick="filtrar('Estrategia', this)">
+            🧠 Estrategia
+        </button>
 
-    <main class="contenedor">
+        <button onclick="filtrar('Arcade', this)">
+            👾 Arcade
+        </button>
+    </div>
 
-        <h2>🎮 TODOS LOS JUEGOS</h2>
+    <div class="juegos" id="listaJuegos"></div>
 
-        <div class="juegos" id="lista-juegos">
+    <p id="mensaje">
+        No encontramos ese juego. 😢
+    </p>
 
+</main>
 
-            <!-- 2048 -->
+<footer id="contacto">
+    <h2>🎮 JUEGOLAND</h2>
+    <p>¡Tu mundo de diversión!</p>
+    <p>Todos tus juegos favoritos en un solo lugar.</p>
+</footer>
 
-            <div class="juego">
+<script>
 
-                <div class="icono juego-2048">
-                    2048
+// NOMBRE, CARPETA, ICONO, COLOR, CATEGORIA
+
+const juegos = [
+
+["2048","2048_ver2-main","🔢","#e9a23b","Estrategia"],
+["Slime Blast","Angelo-s_Slime_Blast-main","🟢","#48bfa5","Arcade"],
+["Buscaminas","buscaminas-main","💣","#e76f51","Estrategia"],
+["Danner77","Danner77-main","🎯","#8b72e8","Arcade"],
+["Flappy Bird","FlappyBird-main","🐤","#4ca6d9","Arcade"],
+["Frogger","frogger-main","🐸","#43b581","Aventura"],
+["Geometry Dash","GeometryDash-main","🟪","#9b5de5","Arcade"],
+["Gunfight","gunfight-main","🤠","#e76f51","Arcade"],
+["Lalo","Lalo-main","🎮","#e9a23b","Aventura"],
+["Pac-Man","pacman-main","👾","#f9c80e","Arcade"],
+["Piedra, Papel o Tijera","piedra,papel,tijera-main","✂️","#4ca6d9","Arcade"],
+["Pong","pong-main","🏓","#43b581","Arcade"],
+["Runner","Runner-main","🏃","#e76f51","Aventura"],
+["Seahorse War","SeahorseWar-main","🐠","#4ca6d9","Aventura"],
+["Snake","Snake-main","🐍","#43b581","Arcade"],
+["Space Game","space_game-main","🚀","#8b72e8","Aventura"],
+["Sudoku","Sudoku-main","🧩","#4ca6d9","Estrategia"],
+["Tetris SG","Tetris.SG-main","🧩","#9b5de5","Estrategia"],
+["Tetris","tetris-main","🟦","#4ca6d9","Estrategia"],
+["Tres en Raya","tresenraya-main","⭕","#e76f51","Estrategia"]
+
+];
+
+let categoriaActual = "Todos";
+
+// MOSTRAR JUEGOS
+
+function mostrarJuegos() {
+
+    let texto = document.getElementById("buscar")
+        .value.toLowerCase();
+
+    let lista = juegos.filter(function(juego) {
+
+        let coincideNombre =
+            juego[0].toLowerCase().includes(texto);
+
+        let coincideCategoria =
+            categoriaActual === "Todos" ||
+            juego[4] === categoriaActual;
+
+        return coincideNombre && coincideCategoria;
+
+    });
+
+    let contenido = "";
+
+    lista.forEach(function(juego) {
+
+        contenido += `
+            <div class="tarjeta">
+
+                <div class="imagen"
+                     style="--color:${juego[3]}">
+
+                    ${juego[2]}
+
                 </div>
 
-                <h3>2048</h3>
+                <div class="info">
 
-                <p>Combina los números y llega hasta 2048.</p>
+                    <h3>${juego[0]}</h3>
 
-                <a href="2048_ver2-main/index.html">
-                    JUGAR
-                </a>
+                    <p>¡Prepárate para jugar!</p>
 
-            </div>
+                    <a class="boton"
+                       href="./${juego[1]}/index.html">
 
+                       JUGAR AHORA ▶
 
-            <!-- ANGEL'S SLIME BLAST -->
+                    </a>
 
-            <div class="juego">
-
-                <div class="icono slime">
-                    🟢
                 </div>
 
-                <h3>Angel's Slime Blast</h3>
-
-                <p>Una aventura llena de diversión y slime.</p>
-
-                <a href="Angel's_Slime_Blast-main/index.html">
-                    JUGAR
-                </a>
-
             </div>
+        `;
 
+    });
 
-            <!-- BUSCAMINAS -->
+    document.getElementById("listaJuegos").innerHTML =
+        contenido;
 
-            <div class="juego">
+    document.getElementById("cantidad").textContent =
+        lista.length + " juegos";
 
-                <div class="icono minas">
-                    💣
-                </div>
+    document.getElementById("mensaje").style.display =
+        lista.length === 0 ? "block" : "none";
 
-                <h3>Buscaminas</h3>
+}
 
-                <p>Encuentra las casillas seguras y evita las minas.</p>
+// FILTRAR CATEGORIAS
 
-                <a href="buscaminas-main/index.html">
-                    JUGAR
-                </a>
+function filtrar(categoria, boton) {
 
-            </div>
+    categoriaActual = categoria;
 
+    document.querySelectorAll(".categorias button")
+        .forEach(function(b) {
+            b.classList.remove("activo");
+        });
 
-            <!-- GAME JAVASCRIPT -->
+    boton.classList.add("activo");
 
-            <div class="juego">
+    mostrarJuegos();
 
-                <div class="icono javascript">
-                    JS
-                </div>
+}
 
-                <h3>Game JavaScript</h3>
+// IR A LOS JUEGOS
 
-                <p>Un juego desarrollado con JavaScript.</p>
+function irJuegos() {
 
-                <a href="Game_JavaScript-main/index.html">
-                    JUGAR
-                </a>
+    document.getElementById("juegos")
+        .scrollIntoView({ behavior: "smooth" });
 
-            </div>
+}
 
+// INICIAR
 
-            <!-- INTRODUCTION JAVASCRIPT -->
+mostrarJuegos();
 
-            <div class="juego">
-
-                <div class="icono codigo">
-                    &lt;/&gt;
-                </div>
-
-                <h3>Introduction JavaScript</h3>
-
-                <p>Explora este juego desarrollado con JavaScript.</p>
-
-                <a href="introduction_java_script-main/index.html">
-                    JUGAR
-                </a>
-
-            </div>
-
-
-            <!-- JAVA SCRIPT -->
-
-            <div class="juego">
-
-                <div class="icono java">
-                    ☕
-                </div>
-
-                <h3>Java Script</h3>
-
-                <p>Una experiencia de juego diferente.</p>
-
-                <a href="java_script-main/index.html">
-                    JUGAR
-                </a>
-
-            </div>
-
-
-            <!-- JAVASCRIPT TETRIS -->
-
-            <div class="juego">
-
-                <div class="icono tetris">
-                    🧱
-                </div>
-
-                <h3>JavaScript Tetris</h3>
-
-                <p>Ordena las piezas y consigue la mayor puntuación.</p>
-
-                <a href="javascript_tetris-main/index.html">
-                    JUGAR
-                </a>
-
-            </div>
-
-
-            <!-- JAVASCRIPT -->
-
-            <div class="juego">
-
-                <div class="icono js">
-                    JS
-                </div>
-
-                <h3>JavaScript Game</h3>
-
-                <p>Un juego creado con JavaScript.</p>
-
-                <a href="javascript-main/index.html">
-                    JUGAR
-                </a>
-
-            </div>
-
-
-            <!-- JAVASCRIPT GAME -->
-
-            <div class="juego">
-
-                <div class="icono gamer">
-                    🎮
-                </div>
-
-                <h3>JavaScript Game</h3>
-
-                <p>Prepárate para superar este desafío.</p>
-
-                <a href="javascriptgame-main/index.html">
-                    JUGAR
-                </a>
-
-            </div>
-
-
-            <!-- JUEGITOS HTML -->
-
-            <div class="juego">
-
-                <div class="icono html">
-                    HTML
-                </div>
-
-                <h3>Juegitos HTML</h3>
-
-                <p>Una colección de diversión hecha con código.</p>
-
-                <a href="juegitos_html-main/index.html">
-                    JUGAR
-                </a>
-
-            </div>
-
-
-            <!-- JUEGO JAVA -->
-
-            <div class="juego">
-
-                <div class="icono java2">
-                    ☕
-                </div>
-
-                <h3>Juego Java</h3>
-
-                <p>Un nuevo reto te espera.</p>
-
-                <a href="juego_java-main/index.html">
-                    JUGAR
-                </a>
-
-            </div>
-
-
-            <!-- PACMAN -->
-
-            <div class="juego">
-
-                <div class="icono pacman">
-                    🟡
-                </div>
-
-                <h3>Pac-Man</h3>
-
-                <p>Recorre el laberinto y consigue todos los puntos.</p>
-
-                <a href="juego_pacman-main/index.html">
-                    JUGAR
-                </a>
-
-            </div>
-
-
-            <!-- JUEGO JAVA -->
-
-            <div class="juego">
-
-                <div class="icono java3">
-                    🎯
-                </div>
-
-                <h3>Juego Java</h3>
-
-                <p>Demuestra tus habilidades en este desafío.</p>
-
-                <a href="juego-java-main/index.html">
-                    JUGAR
-                </a>
-
-            </div>
-
-
-            <!-- MI JUEGO -->
-
-            <div class="juego">
-
-                <div class="icono mi-juego">
-                    ⭐
-                </div>
-
-                <h3>Mi Juego</h3>
-
-                <p>Una aventura creada para Juegolandia.</p>
-
-                <a href="mi_juego-main/index.html">
-                    JUGAR
-                </a>
-
-            </div>
-
-
-            <!-- SNAKE -->
-
-            <div class="juego">
-
-                <div class="icono snake">
-                    🐍
-                </div>
-
-                <h3>Snake</h3>
-
-                <p>Haz crecer la serpiente sin chocar.</p>
-
-                <a href="Snake-main/index.html">
-                    JUGAR
-                </a>
-
-            </div>
-
-
-            <!-- SPACE GAME -->
-
-            <div class="juego">
-
-                <div class="icono espacio">
-                    👾
-                </div>
-
-                <h3>Space Game</h3>
-
-                <p>Viaja al espacio y supera los obstáculos.</p>
-
-                <a href="space_game-main/index.html">
-                    JUGAR
-                </a>
-
-            </div>
-
-
-            <!-- SUDOKU -->
-
-            <div class="juego">
-
-                <div class="icono sudoku">
-                    🔢
-                </div>
-
-                <h3>Sudoku</h3>
-
-                <p>Pon a prueba tu lógica y completa el tablero.</p>
-
-                <a href="Sudoku-main/index.html">
-                    JUGAR
-                </a>
-
-            </div>
-
-
-            <!-- VERSION 2 -->
-
-            <div class="juego">
-
-                <div class="icono version">
-                    🎲
-                </div>
-
-                <h3>Versión 2</h3>
-
-                <p>Una nueva experiencia de juego.</p>
-
-                <a href="version2_juego-main/index.html">
-                    JUGAR
-                </a>
-
-            </div>
-
-
-        </div>
-
-    </main>
-
-
-    <!-- PIE DE PÁGINA -->
-
-    <footer>
-
-        <h2>🎮 JUEGOLANDIA</h2>
-
-        <p>
-            Un lugar donde cada código se convierte en diversión.
-        </p>
-
-        <p>
-            Especialidad en Sistemas — 2026
-        </p>
-
-    </footer>
-
-
-    <script>
-
-        function buscarJuego() {
-
-            const texto =
-                document
-                .getElementById("buscador")
-                .value
-                .toLowerCase();
-
-            const juegos =
-                document.querySelectorAll(".juego");
-
-            juegos.forEach(function(juego) {
-
-                const nombre =
-                    juego
-                    .querySelector("h3")
-                    .textContent
-                    .toLowerCase();
-
-                if (nombre.includes(texto)) {
-
-                    juego.style.display = "flex";
-
-                } else {
-
-                    juego.style.display = "none";
-
-                }
-
-            });
-
-        }
-
-    </script>
+</script>
 
 </body>
-
 </html>
