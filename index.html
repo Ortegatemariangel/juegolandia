@@ -2,546 +2,286 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Juegoland</title>
 
-<title>Juegoland - Zona Gamer</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
 
-<style>
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #fff8f1;
+            color: #444;
+        }
 
-body {
-    font-family: Arial, sans-serif;
-    background: #101426;
-    color: white;
-}
+        header {
+            background-color: #ffd6e7;
+            text-align: center;
+            padding: 25px 15px;
+        }
 
-/* ENCABEZADO */
+        header h1 {
+            margin: 0;
+            color: #754c69;
+            font-size: 38px;
+        }
 
-header {
-    background: #191f38;
-    padding: 22px 8%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 15px;
-    border-bottom: 3px solid #00e5b0;
-}
+        header p {
+            margin: 10px 0 0;
+            color: #765f70;
+            font-size: 16px;
+        }
 
-.logo {
-    font-size: 30px;
-    font-weight: bold;
-    color: #00e5b0;
-}
+        main {
+            width: 90%;
+            max-width: 1100px;
+            margin: 25px auto;
+        }
 
-.logo span {
-    color: #ffcf40;
-}
+        .bienvenida {
+            text-align: center;
+            margin-bottom: 25px;
+        }
 
-header a {
-    color: white;
-    text-decoration: none;
-    margin-left: 20px;
-    font-weight: bold;
-}
+        .bienvenida h2 {
+            color: #8064a2;
+            margin-bottom: 8px;
+        }
 
-header a:hover {
-    color: #00e5b0;
-}
+        .buscador {
+            display: block;
+            width: 100%;
+            max-width: 400px;
+            margin: 20px auto;
+            padding: 12px;
+            border: 2px solid #e8cde0;
+            border-radius: 20px;
+            font-size: 15px;
+            outline: none;
+        }
 
-/* PORTADA */
+        .juegos {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 18px;
+        }
 
-.portada {
-    margin: 30px auto;
-    width: 90%;
-    max-width: 1250px;
-    min-height: 270px;
-    border-radius: 25px;
-    padding: 40px;
-    background: linear-gradient(120deg, #283c86, #602b91);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 20px;
-    overflow: hidden;
-}
+        .juego {
+            background-color: white;
+            border: 2px solid #f2dce9;
+            border-radius: 15px;
+            padding: 18px 10px;
+            text-align: center;
+            text-decoration: none;
+            color: #555;
+            transition: 0.2s;
+        }
 
-.portada h1 {
-    font-size: 42px;
-    margin-bottom: 15px;
-}
+        .juego:hover {
+            transform: translateY(-4px);
+            background-color: #fff0f6;
+        }
 
-.portada p {
-    color: #e0e4ff;
-    font-size: 17px;
-    line-height: 1.6;
-    max-width: 500px;
-}
+        .emoji {
+            font-size: 38px;
+            display: block;
+            margin-bottom: 10px;
+        }
 
-.portada button {
-    margin-top: 22px;
-    padding: 14px 25px;
-    background: #00e5b0;
-    color: #101426;
-    border: none;
-    border-radius: 12px;
-    font-weight: bold;
-    font-size: 16px;
-    cursor: pointer;
-}
+        .juego h3 {
+            font-size: 16px;
+            margin: 0;
+        }
 
-.portada button:hover {
-    background: #ffcf40;
-}
+        footer {
+            text-align: center;
+            padding: 20px;
+            margin-top: 30px;
+            background-color: #ffd6e7;
+            color: #765f70;
+        }
 
-.portada .decoracion {
-    font-size: 110px;
-}
+        @media (max-width: 500px) {
+            header h1 {
+                font-size: 30px;
+            }
 
-/* BUSCADOR */
-
-.busqueda {
-    width: 90%;
-    max-width: 700px;
-    margin: 35px auto;
-}
-
-input {
-    width: 100%;
-    padding: 17px;
-    border: 2px solid #343d60;
-    border-radius: 15px;
-    background: #191f38;
-    color: white;
-    font-size: 16px;
-    outline: none;
-}
-
-input:focus {
-    border-color: #00e5b0;
-}
-
-input::placeholder {
-    color: #aab1cf;
-}
-
-/* CONTENIDO */
-
-.contenido {
-    width: 90%;
-    max-width: 1250px;
-    margin: auto;
-}
-
-.titulo {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 12px;
-    margin-bottom: 25px;
-}
-
-.titulo h2 {
-    font-size: 28px;
-}
-
-.titulo span {
-    color: #00e5b0;
-}
-
-/* CATEGORIAS */
-
-.categorias {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 12px;
-    margin-bottom: 30px;
-}
-
-.categorias button {
-    padding: 12px 20px;
-    border: 1px solid #343d60;
-    border-radius: 25px;
-    background: #191f38;
-    color: white;
-    cursor: pointer;
-    font-weight: bold;
-}
-
-.categorias button:hover,
-.categorias button.activo {
-    background: #00e5b0;
-    color: #101426;
-}
-
-/* TARJETAS */
-
-.juegos {
-    display: grid;
-    grid-template-columns: repeat(
-        auto-fit,
-        minmax(200px, 1fr)
-    );
-    gap: 22px;
-}
-
-.tarjeta {
-    background: #191f38;
-    border: 1px solid #343d60;
-    border-radius: 20px;
-    overflow: hidden;
-    transition: 0.3s;
-}
-
-.tarjeta:hover {
-    transform: translateY(-7px);
-    border-color: #00e5b0;
-    box-shadow: 0 10px 25px #00e5b020;
-}
-
-.imagen {
-    height: 150px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 65px;
-    background: var(--color);
-}
-
-.info {
-    padding: 18px;
-}
-
-.info h3 {
-    font-size: 19px;
-    margin-bottom: 12px;
-    min-height: 42px;
-}
-
-.info p {
-    color: #aab1cf;
-    font-size: 14px;
-    margin-bottom: 18px;
-}
-
-.boton {
-    display: block;
-    text-align: center;
-    text-decoration: none;
-    background: #00e5b0;
-    color: #101426;
-    padding: 13px;
-    border-radius: 10px;
-    font-weight: bold;
-}
-
-.boton:hover {
-    background: #ffcf40;
-}
-
-/* MENSAJE */
-
-#mensaje {
-    display: none;
-    text-align: center;
-    padding: 35px;
-    color: #ffcf40;
-}
-
-/* PIE */
-
-footer {
-    margin-top: 60px;
-    padding: 35px 15px;
-    background: #191f38;
-    text-align: center;
-    border-top: 3px solid #00e5b0;
-}
-
-footer h2 {
-    color: #00e5b0;
-    margin-bottom: 12px;
-}
-
-footer p {
-    color: #aab1cf;
-    margin-top: 8px;
-}
-
-/* CELULARES */
-
-@media (max-width: 600px) {
-    header {
-        padding: 20px;
-    }
-
-    header nav {
-        width: 100%;
-    }
-
-    header a {
-        margin: 0 12px 0 0;
-    }
-
-    .portada {
-        padding: 25px;
-        min-height: 230px;
-    }
-
-    .portada h1 {
-        font-size: 30px;
-    }
-
-    .portada .decoracion {
-        font-size: 55px;
-    }
-
-    .titulo h2 {
-        font-size: 23px;
-    }
-
-    .juegos {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 12px;
-    }
-
-    .imagen {
-        height: 110px;
-        font-size: 45px;
-    }
-
-    .info {
-        padding: 12px;
-    }
-
-    .info h3 {
-        font-size: 16px;
-    }
-
-    .info p {
-        font-size: 12px;
-    }
-}
-</style>
+            .juegos {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
 </head>
 
 <body>
 
-<header>
+    <header>
+        <h1>Juegos MOON</h1>
+        <p>¡Un lugar para jugar y divertirse!</p>
+    </header>
 
-    <div class="logo">
-        🎮 JUEGO<span>LAND</span>
-    </div>
+    <main>
+        <section class="bienvenida">
+            <h2>¡Escoge tu juego favorito!</h2>
+            <p>Explora los juegos y diviértete un rato ✨</p>
+        </section>
 
-    <nav>
-        <a href="#">Inicio</a>
-        <a href="#juegos">Juegos</a>
-        <a href="#contacto">Contacto</a>
-    </nav>
+        <input
+            type="text"
+            id="buscador"
+            class="buscador"
+            placeholder="🔎 Buscar un juego..."
+        >
 
-</header>
+        <section class="juegos" id="listaJuegos">
 
-<section class="portada">
+            <a class="juego" href="./2048_ver2-main/index.html">
+                <span class="emoji">🔢</span>
+                <h3>2048</h3>
+                <h3>Mariangel Ortegate</h3>
+            </a>
 
-    <div>
-        <h1>¡La diversión comienza aquí!</h1>
+            <a class="juego" href="./Angelo-s_Slime_Blast-main/index.html">
+                <span class="emoji">🟢</span>
+                <h3>Slime Blast</h3>
+                <h3>Ramón</h3>
+            </a>
 
-        <p>
-            Explora mundos increíbles, supera desafíos
-            y encuentra tu próximo juego favorito.
-            ¡Todo en un solo lugar!
-        </p>
+            <a class="juego" href="./buscaminas-main/index.html">
+                <span class="emoji">💣</span>
+                <h3>Buscaminas</h3>
+                <h3>Daniel Rios</h3>
+            </a>
 
-        <button onclick="irJuegos()">
-            EXPLORAR JUEGOS 🚀
-        </button>
-    </div>
+            <a class="juego" href="./Danner77-main/index.html">
+                <span class="emoji">🎯</span>
+                <h3>Danner77</h3>
+            </a>
 
-    <div class="decoracion">🕹️</div>
+            <a class="juego" href="./FlappyBird-main/index.html">
+                <span class="emoji">🐤</span>
+                <h3>Flappy Bird</h3>
+                <h3>Carlos Galvis</h3>
+            </a>
 
-</section>
+            <a class="juego" href="./frogger-main/index.html">
+                <span class="emoji">🐸</span>
+                <h3>Frogger</h3>
+                <h3>Miguel Galvis</h3>
+            </a>
 
-<div class="busqueda">
-    <input
-        type="text"
-        id="buscar"
-        placeholder="🔍 Busca tu juego favorito..."
-        oninput="mostrarJuegos()"
-    >
-</div>
+            <a class="juego" href="./GeometryDash-main/index.html">
+                <span class="emoji">🟪</span>
+                <h3>Geometry Dash</h3>
+                <h3>Daniel Fontecha</h3>
+            </a>
 
-<main class="contenido" id="juegos">
+            <a class="juego" href="./gunfight-main/index.html">
+                <span class="emoji">🔫</span>
+                <h3>Gunfight</h3>
+                <h3>Julian Sanchez</h3>
+            </a>
 
-    <div class="titulo">
-        <h2>🔥 Juegos disponibles</h2>
-        <span id="cantidad"></span>
-    </div>
+            <a class="juego" href="./Lalo-main/index.html">
+                <span class="emoji">🎮</span>
+                <h3>Lalo</h3>
+                <h3>Soreth Florez</h3>
+            </a>
 
-    <div class="categorias">
-        <button class="activo" onclick="filtrar('Todos', this)">
-            🎮 Todos
-        </button>
+            <a class="juego" href="./pacman-main/index.html">
+                <span class="emoji">👾</span>
+                <h3>Pac-Man</h3>
+                <h3>Santana</h3>
+            </a>
 
-        <button onclick="filtrar('Aventura', this)">
-            🏃 Aventura
-        </button>
+            <a class="juego" href="./piedra,papel,tijera-main/index.html">
+                <span class="emoji">✊</span>
+                <h3>Piedra, papel o tijera</h3>
+                <h3>Mendez</h3>
+            </a>
 
-        <button onclick="filtrar('Estrategia', this)">
-            🧠 Estrategia
-        </button>
+            <a class="juego" href="./pong-main/index.html">
+                <span class="emoji">🏓</span>
+                <h3>Pong</h3>
+                <h3>Oscar Sanchez</h3>
+            </a>
 
-        <button onclick="filtrar('Arcade', this)">
-            👾 Arcade
-        </button>
-    </div>
+            <a class="juego" href="./Runner-main/index.html">
+                <span class="emoji">🏃</span>
+                <h3>Runner</h3>
+                <h3>Harold Martinez</h3>
+            </a>
 
-    <div class="juegos" id="listaJuegos"></div>
+            <a class="juego" href="./SeahorseWar-main/index.html">
+                <span class="emoji">🌊</span>
+                <h3>Seahorse War</h3>
+            </a>
 
-    <p id="mensaje">
-        No encontramos ese juego. 😢
-    </p>
+            <a class="juego" href="./Snake-main/index.html">
+                <span class="emoji">🐍</span>
+                <h3>Snake</h3>
+                <h3>David Macias</h3>
+            </a>
 
-</main>
+            <a class="juego" href="./space_game-main/index.html">
+                <span class="emoji">🚀</span>
+                <h3>Space Game</h3>
+                <h3>Mariana Delgado</h3>
+            </a>
 
-<footer id="contacto">
-    <h2>🎮 JUEGOLAND</h2>
-    <p>¡Tu mundo de diversión!</p>
-    <p>Todos tus juegos favoritos en un solo lugar.</p>
-</footer>
+            <a class="juego" href="./Sudoku-main/index.html">
+                <span class="emoji">🧩</span>
+                <h3>Sudoku</h3>
+                <h3>Johan Fiallo</h3>
+            </a>
 
-<script>
+            <a class="juego" href="./Tetris.SG-main/index.html">
+                <span class="emoji">🟦</span>
+                <h3>Tetris SG</h3>
+                <h3>Sofia Galvis</h3>
+            </a>
 
-// NOMBRE, CARPETA, ICONO, COLOR, CATEGORIA
+            <a class="juego" href="./tetris-main/index.html">
+                <span class="emoji">🟨</span>
+                <h3>Tetris</h3>
+                <h3>Juan Pablo Durán</h3>
+            </a>
 
-const juegos = [
+            <a class="juego" href="./tresenraya-main/index.html">
+                <span class="emoji">❌</span>
+                <h3>Tres en raya</h3>
+                <h3>Alfonso Marquez</h3>
+            </a>
 
-["2048","2048_ver2-main","🔢","#e9a23b","Estrategia"],
-["Slime Blast","Angelo-s_Slime_Blast-main","🟢","#48bfa5","Arcade"],
-["Buscaminas","buscaminas-main","💣","#e76f51","Estrategia"],
-["Danner77","Danner77-main","🎯","#8b72e8","Arcade"],
-["Flappy Bird","FlappyBird-main","🐤","#4ca6d9","Arcade"],
-["Frogger","frogger-main","🐸","#43b581","Aventura"],
-["Geometry Dash","GeometryDash-main","🟪","#9b5de5","Arcade"],
-["Gunfight","gunfight-main","🤠","#e76f51","Arcade"],
-["Lalo","Lalo-main","🎮","#e9a23b","Aventura"],
-["Pac-Man","pacman-main","👾","#f9c80e","Arcade"],
-["Piedra, Papel o Tijera","piedra,papel,tijera-main","✂️","#4ca6d9","Arcade"],
-["Pong","pong-main","🏓","#43b581","Arcade"],
-["Runner","Runner-main","🏃","#e76f51","Aventura"],
-["Seahorse War","SeahorseWar-main","🐠","#4ca6d9","Aventura"],
-["Snake","Snake-main","🐍","#43b581","Arcade"],
-["Space Game","space_game-main","🚀","#8b72e8","Aventura"],
-["Sudoku","Sudoku-main","🧩","#4ca6d9","Estrategia"],
-["Tetris SG","Tetris.SG-main","🧩","#9b5de5","Estrategia"],
-["Tetris","tetris-main","🟦","#4ca6d9","Estrategia"],
-["Tres en Raya","tresenraya-main","⭕","#e76f51","Estrategia"]
+        </section>
+    </main>
 
-];
+    <footer>
+        Hecho por: Mariangel | Juegoland
+    </footer>
 
-let categoriaActual = "Todos";
+    <script>
+        const buscador = document.getElementById("buscador");
+        const juegos = document.querySelectorAll(".juego");
 
-// MOSTRAR JUEGOS
+        buscador.addEventListener("input", function () {
+            const texto = buscador.value.toLowerCase();
 
-function mostrarJuegos() {
+            juegos.forEach(function (juego) {
+                const nombre = juego.textContent.toLowerCase();
 
-    let texto = document.getElementById("buscar")
-        .value.toLowerCase();
-
-    let lista = juegos.filter(function(juego) {
-
-        let coincideNombre =
-            juego[0].toLowerCase().includes(texto);
-
-        let coincideCategoria =
-            categoriaActual === "Todos" ||
-            juego[4] === categoriaActual;
-
-        return coincideNombre && coincideCategoria;
-
-    });
-
-    let contenido = "";
-
-    lista.forEach(function(juego) {
-
-        contenido += `
-            <div class="tarjeta">
-
-                <div class="imagen"
-                     style="--color:${juego[3]}">
-
-                    ${juego[2]}
-
-                </div>
-
-                <div class="info">
-
-                    <h3>${juego[0]}</h3>
-
-                    <p>¡Prepárate para jugar!</p>
-
-                    <a class="boton"
-                       href="./${juego[1]}/index.html">
-
-                       JUGAR AHORA ▶
-
-                    </a>
-
-                </div>
-
-            </div>
-        `;
-
-    });
-
-    document.getElementById("listaJuegos").innerHTML =
-        contenido;
-
-    document.getElementById("cantidad").textContent =
-        lista.length + " juegos";
-
-    document.getElementById("mensaje").style.display =
-        lista.length === 0 ? "block" : "none";
-
-}
-
-// FILTRAR CATEGORIAS
-
-function filtrar(categoria, boton) {
-
-    categoriaActual = categoria;
-
-    document.querySelectorAll(".categorias button")
-        .forEach(function(b) {
-            b.classList.remove("activo");
+                if (nombre.includes(texto)) {
+                    juego.style.display = "block";
+                } else {
+                    juego.style.display = "none";
+                }
+            });
         });
-
-    boton.classList.add("activo");
-
-    mostrarJuegos();
-
-}
-
-// IR A LOS JUEGOS
-
-function irJuegos() {
-
-    document.getElementById("juegos")
-        .scrollIntoView({ behavior: "smooth" });
-
-}
-
-// INICIAR
-
-mostrarJuegos();
-
-</script>
+    </script>
 
 </body>
 </html>
